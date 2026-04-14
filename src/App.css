@@ -1,0 +1,46 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.header-cta {
+  font-family: var(--font-heading);
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.header-cta:hover {
+  border-bottom-color: var(--accent-color);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 5%;
+  border-top: 1px solid rgba(121, 139, 115, 0.1);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
