@@ -64,11 +64,19 @@ export default function Hero() {
         <motion.h1 className={styles.title} variants={textContainer}>
           {headlineLines.map((line, lineIndex) => (
             <span key={lineIndex} className={styles.lineBreak}>
-              {line.split("").map((char, index) => (
-                <motion.span key={index} variants={charAnim} className={styles.char}>
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
+              {line.split(" ").map((word, wordIndex) => {
+                const wordsArray = line.split(" ");
+                return (
+                  <span key={wordIndex} className={styles.wordWrapper}>
+                    {word.split("").map((char, charIndex) => (
+                      <motion.span key={charIndex} variants={charAnim} className={styles.char}>
+                        {char}
+                      </motion.span>
+                    ))}
+                    {wordIndex !== wordsArray.length - 1 && "\u00A0"}
+                  </span>
+                );
+              })}
             </span>
           ))}
         </motion.h1>
