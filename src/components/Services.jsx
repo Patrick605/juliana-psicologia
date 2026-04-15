@@ -2,48 +2,61 @@ import { motion } from 'framer-motion';
 import { Heart, Brain, Sun, Sparkles } from 'lucide-react';
 import styles from './Services.module.css';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+const easing = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const fadeUpObj = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: easing } }
 };
 
 export default function Services() {
   const services = [
     {
-      icon: <Brain className={styles.icon} strokeWidth={1.5} />,
+      icon: <Brain className={styles.icon} strokeWidth={1} />,
       title: "Ansiedade",
-      text: "Compreensão e controle dos pensamentos acelerados, trazendo mais calma para o seu dia a dia."
+      text: "Gestão de pensamentos intrusivos e restauração da calma no presente."
     },
     {
-      icon: <Sun className={styles.icon} strokeWidth={1.5} />,
+      icon: <Sun className={styles.icon} strokeWidth={1} />,
       title: "Depressão",
-      text: "Apoio profundo para encontrar sentido, resgatar sua energia vital e atravessar os momentos escuros."
+      text: "Mapeamento suave e tratamento gradual para recuperação do ânimo vital."
     },
     {
-      icon: <Heart className={styles.icon} strokeWidth={1.5} />,
+      icon: <Heart className={styles.icon} strokeWidth={1} />,
       title: "Autoestima",
-      text: "Fortalecimento do amor próprio, ajudando você a reconhecer e valorizar quem realmente é."
+      text: "Solidificação da relação mais importante que você terá: consigo mesma."
     },
     {
-      icon: <Sparkles className={styles.icon} strokeWidth={1.5} />,
+      icon: <Sparkles className={styles.icon} strokeWidth={1} />,
       title: "Autoconhecimento",
-      text: "Uma jornada de descoberta interior para viver com mais clareza e propósito."
+      text: "Investigação da sua verdadeira narrativa para viver com mais precisão."
     }
   ];
 
   return (
-    <section className={`section-container section-padding ${styles.services}`}>
+    <section className={`section-padding ${styles.services}`}>
       <motion.div
+        className="section-container"
+        variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+        viewport={{ once: true, margin: "-10%" }}
       >
-        <motion.h2 className="heading-secondary" variants={fadeUp}>Áreas de Foco</motion.h2>
+        <div className={styles.header}>
+          <motion.h2 className={styles.title} variants={fadeUpObj}>Focos de Atuação</motion.h2>
+        </div>
         
         <div className={styles.grid}>
           {services.map((svc, i) => (
-            <motion.div key={i} className={styles.card} variants={fadeUp}>
+            <motion.div key={i} className={styles.card} variants={fadeUpObj}>
               <div className={styles.iconBox}>{svc.icon}</div>
               <h3 className={styles.cardTitle}>{svc.title}</h3>
               <p className={styles.cardText}>{svc.text}</p>

@@ -1,46 +1,63 @@
 import { motion } from 'framer-motion';
 import styles from './HowItWorks.module.css';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+const easing = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3 }
+  }
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: easing } }
 };
 
 export default function HowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Primeiro Contato",
-      description: "Você entra em contato via WhatsApp e agendamos o melhor horário para a sua sessão inicial."
+      title: "Agendamento",
+      description: "Um primeiro contato simples. Escolhemos um horário com calma, ajustando-se à sua rotina para uma sessão inicial sem pressa."
     },
     {
       number: "02",
-      title: "Acolhimento",
-      description: "Nosso primeiro encontro é focado em ouvir você, entender suas necessidades e estabelecer um vínculo de confiança."
+      title: "O Encontro",
+      description: "Nosso espaço é de silêncio e escuta ativa. O primeiro encontro serve para construirmos confiança, no seu tempo."
     },
     {
       number: "03",
-      title: "O Processo",
-      description: "Caminhamos no seu ritmo, em sessões semanais, construindo ferramentas para o seu bem-estar emocional."
+      title: "O Ponto de Virada",
+      description: "Através de conversas guiadas e profundas, desenvolvemos clareza sobre suas questões para alcançar equilíbrio sustentável."
     }
   ];
 
   return (
-    <section className={`section-container section-padding ${styles.howItWorks}`}>
+    <section className={`section-padding ${styles.howItWorks}`}>
       <motion.div
+        className="section-container"
+        variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+        viewport={{ once: true, margin: "-10%" }}
       >
-        <motion.h2 className="heading-secondary" variants={fadeUp}>Como funciona?</motion.h2>
+        <div className={styles.header}>
+          <motion.h2 className={styles.title} variants={fadeLeft}>O Processo</motion.h2>
+        </div>
         
-        <div className={styles.stepsGrid}>
+        <div className={styles.stepsLayout}>
           {steps.map((step, index) => (
-            <motion.div key={index} className={styles.stepCard} variants={fadeUp}>
-              <span className={styles.number}>{step.number}</span>
-              <h3 className={styles.cardTitle}>{step.title}</h3>
-              <p className={styles.cardDescription}>{step.description}</p>
+            <motion.div key={index} className={styles.stepBlock} variants={fadeLeft}>
+              <div className={styles.numberWrapper}>
+                <span className={styles.number}>{step.number}</span>
+              </div>
+              <div className={styles.textContent}>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>

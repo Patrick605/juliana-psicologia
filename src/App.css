@@ -9,38 +9,54 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 2rem 5%;
+  padding: 3rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
 }
 
 .logo {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.8rem;
+  font-weight: 400;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
 }
 
 .header-cta {
   font-family: var(--font-heading);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 400;
   color: var(--text-primary);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  position: relative;
+  transition: color 0.4s var(--apple-ease);
 }
 
-.header-cta:hover {
-  border-bottom-color: var(--accent-color);
+.header-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--apple-ease);
+}
+
+.header-cta:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .footer {
   text-align: center;
-  padding: 2rem 5%;
-  border-top: 1px solid rgba(121, 139, 115, 0.1);
+  padding: 4rem 5%;
   color: var(--text-secondary);
   font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
 }

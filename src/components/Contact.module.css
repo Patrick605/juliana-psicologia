@@ -1,45 +1,65 @@
 .contact {
+  background-color: var(--bg-secondary);
   text-align: center;
-  padding-bottom: 8rem;
 }
 
 .wrapper {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.text {
+.headline {
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 4rem;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.ctaButton {
+  padding: 1.5rem 3.5rem;
   font-size: 1.2rem;
-  margin-bottom: 3rem;
-  color: var(--text-secondary);
 }
 
-.ctaGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+.socials {
+  margin-top: 4rem;
 }
 
-.whatsappBtn {
-  font-size: 1.2rem;
-  padding: 1.2rem 2.5rem;
-}
-
-.btnIcon {
-  margin-right: 0.8rem;
-}
-
-.instaLink {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.plainLink {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+  font-size: 1.05rem;
+  position: relative;
+  transition: color 0.4s var(--apple-ease);
 }
 
-.instaLink:hover {
-  color: var(--accent-color);
+.plainLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-secondary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--apple-ease);
+}
+
+.plainLink:hover {
+  color: var(--text-primary);
+}
+
+.plainLink:hover::after {
+  background-color: var(--text-primary);
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+  }
 }

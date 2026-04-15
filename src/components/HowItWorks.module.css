@@ -1,54 +1,71 @@
 .howItWorks {
-  /* Minimalist space */
+  background-color: var(--bg-primary);
+  border-top: 1px solid rgba(0,0,0,0.03);
 }
 
-.stepsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+.header {
+  margin-bottom: 6rem;
 }
 
-.stepCard {
-  background-color: #fff;
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  position: relative;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(121, 139, 115, 0.1);
+.title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+.stepsLayout {
   display: flex;
   flex-direction: column;
+  gap: 6rem;
 }
 
-.stepCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--soft-shadow);
-  border-color: transparent;
+.stepBlock {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.numberWrapper {
+  position: relative;
+  display: flex;
 }
 
 .number {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 6rem;
+  line-height: 0.8;
+  font-weight: 200;
+  color: #ebece8; /* Incredibly subtle */
+  letter-spacing: -0.05em;
+}
+
+.textContent {
+  max-width: 600px;
+  padding-top: 1rem;
+}
+
+.stepTitle {
+  font-size: 2rem;
   font-weight: 300;
-  color: #e0eadb; /* Very faint pastel green */
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
-.cardTitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-  margin-top: 1rem;
-}
-
-.cardDescription {
-  font-size: 1rem;
+.stepDescription {
+  font-size: 1.2rem;
   color: var(--text-secondary);
 }
 
-@media (max-width: 900px) {
-  .stepsGrid {
+@media (max-width: 768px) {
+  .stepBlock {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .number {
+    font-size: 4rem;
+  }
+  .textContent {
+    padding-top: 0;
   }
 }

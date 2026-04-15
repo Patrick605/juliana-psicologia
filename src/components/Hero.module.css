@@ -4,52 +4,60 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  /* Extremely subtle gradient mesh background */
+  background: radial-gradient(circle at 50% 30%, rgba(244, 245, 241, 0.8) 0%, transparent 60%);
 }
 
 .content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .greeting {
-  font-size: 1.1rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 5.5rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  font-weight: 300;
-}
-
-.subtitle {
-  font-size: 1.8rem;
-  color: var(--text-secondary);
-  font-weight: 400;
   margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
 }
 
 .description {
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
-  max-width: 600px;
+  font-size: 1.3rem;
+  margin-bottom: 4rem;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.8;
+  line-height: 1.7;
+}
+
+.ctaWrapper {
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 4.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: 2.8rem;
-  }
-  .subtitle {
-    font-size: 1.4rem;
+    font-size: 3rem;
   }
   .description {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
   }
 }

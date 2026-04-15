@@ -1,7 +1,16 @@
 .services {
-  background-color: #fff;
-  border-radius: 40px;
-  margin: 2rem auto;
+  background-color: var(--bg-primary);
+  border-top: 1px solid rgba(0,0,0,0.03);
+}
+
+.header {
+  margin-bottom: 5rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
 }
 
 .grid {
@@ -11,52 +20,48 @@
 }
 
 .card {
-  padding: 2rem;
-  border-radius: 20px;
-  transition: background-color 0.4s ease;
+  padding: 4rem 3rem;
+  background-color: #fff;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.8s var(--apple-ease);
+  /* Invisible border until hover */
+  border: 1px solid transparent;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
 }
 
 .card:hover {
-  background-color: var(--bg-secondary);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.02);
 }
 
 .iconBox {
-  width: 60px;
-  height: 60px;
-  background-color: var(--bg-secondary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: all 0.4s ease;
-}
-
-.card:hover .iconBox {
-  background-color: #fff;
-  color: var(--accent-color);
-  transform: scale(1.05); /* Slight micro-interaction */
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+  transition: transform 0.8s var(--apple-ease);
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
-  color: var(--text-primary);
+  width: 32px;
+  height: 32px;
 }
 
-.card:hover .icon {
-  color: var(--accent-color);
+.card:hover .iconBox {
+  transform: translateY(-2px);
 }
 
 .cardTitle {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 .cardText {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -64,7 +69,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .services {
-    border-radius: 0;
+  .card {
+    padding: 3rem 2rem;
   }
 }
