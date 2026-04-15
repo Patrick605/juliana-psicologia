@@ -1,29 +1,52 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Hero.module.css';
 
-const easing = [0.16, 1, 0.3, 1]; // Apple-style cubic-bezier
+const easing = [0.25, 1, 0.5, 1];
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2
+      staggerChildren: 0.25,
+      delayChildren: 0.4
     }
   }
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.4, ease: easing } }
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1.8, ease: easing } }
+};
+
+// Character stagger effect for the headline
+const textContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.6 }
+  }
+};
+
+const charAnim = {
+  hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    filter: 'blur(0px)',
+    transition: { duration: 1.6, ease: easing } 
+  }
 };
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  // Very soft parallax for the entire hero text container going up subtly as you scroll down
-  const yParallax = useTransform(scrollY, [0, 1000], [0, -100]);
+  const yParallax = useTransform(scrollY, [0, 1000], [0, -120]);
   const opacityParallax = useTransform(scrollY, [0, 800], [1, 0]);
+
+  const headlineLines = [
+    "Acolhimento profundo",
+    "para uma mente serena."
+  ];
 
   return (
     <section className={`section-container section-padding ${styles.hero}`}>
@@ -35,17 +58,28 @@ export default function Hero() {
         animate="visible"
       >
         <motion.p className={styles.greeting} variants={fadeUp}>
-          Acolhimento & Transformação
+          Psicologia Clínica & Acolhimento
         </motion.p>
-        <motion.h1 className={styles.title} variants={fadeUp}>
-          Encontre clareza<br/>na sua própria história.
+        
+        <motion.h1 className={styles.title} variants={textContainer}>
+          {headlineLines.map((line, lineIndex) => (
+            <span key={lineIndex} className={styles.lineBreak}>
+              {line.split("").map((char, index) => (
+                <motion.span key={index} variants={charAnim} className={styles.char}>
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </span>
+          ))}
         </motion.h1>
+
         <motion.p className={styles.description} variants={fadeUp}>
-          Um espaço seguro e empático de escuta clínica em saúde mental. Guiando você no processo de entender suas emoções e construir uma vida com mais propósito.
+          Um espaço pensado para você desacelerar, respirar fundo e reconstruir sua relação com as próprias emoções. Sem pressa, no seu tempo.
         </motion.p>
+        
         <motion.div variants={fadeUp} className={styles.ctaWrapper}>
           <a href="#contact" className="btn-primary">
-            Agendar Consulta
+            Agendar o seu momento
           </a>
         </motion.div>
       </motion.div>

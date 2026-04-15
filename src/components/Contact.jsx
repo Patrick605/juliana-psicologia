@@ -1,19 +1,19 @@
 import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
 
-const easing = [0.16, 1, 0.3, 1];
+const easing = [0.25, 1, 0.5, 1];
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 }
+    transition: { staggerChildren: 0.3 }
   }
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: easing } }
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 2.0, ease: easing } }
 };
 
 export default function Contact() {
@@ -24,11 +24,14 @@ export default function Contact() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-10%" }}
+        viewport={{ once: true, margin: "-15%" }}
       >
         <div className={styles.wrapper}>
+          <motion.p className={styles.preHeadline} variants={fadeUp}>
+            O SEU MOMENTO
+          </motion.p>
           <motion.h2 className={styles.headline} variants={fadeUp}>
-            O primeiro passo é decidir começar.
+            O passo mais importante<br/>da sua jornada é o de agora.
           </motion.h2>
           
           <motion.div variants={fadeUp}>
@@ -38,7 +41,7 @@ export default function Contact() {
               rel="noopener noreferrer" 
               className={`btn-primary ${styles.ctaButton}`}
             >
-              Falar com Juliana no WhatsApp
+              Iniciar Conversa
             </a>
           </motion.div>
           

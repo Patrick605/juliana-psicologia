@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@200;300;400;500;600&display=swap');
 
 :root {
-  /* Apple-style Ultra Minimal Palette */
-  --bg-primary: #fcfbf9; /* Barely-there pristine beige/white */
-  --bg-secondary: #f4f5f1; /* Delicate pastel gray-green */
-  --accent-color: #6a7c64; /* Sophisticated sage */
-  --accent-hover: #54654f;
-  --text-primary: #1d1f1c; /* Deep charcoal for ultimate contrast without harshness */
-  --text-secondary: #6e766c;
+  /* Apple-style Ultra Minimal Palette - Even softer */
+  --bg-primary: #fbfaf8; /* Extra pure, barely warm white */
+  --bg-secondary: #f6f7f4; /* Very sheer whisper of sage */
+  --accent-color: #7b8f74; /* Subdued sage */
+  --accent-hover: #677861;
+  --text-primary: #2d302c; /* Softer charcoal to reduce harsh contrast */
+  --text-secondary: #8e948c; /* Lighter, elegant secondary text */
   
-  /* Immense Layout Spacing */
-  --section-padding: 15rem 5%; /* Doubled whitespace */
-  --container-max: 1100px; /* Tighter max width for perfect reading line length */
+  /* Extreme Layout Spacing */
+  --section-padding: 22rem 5%; /* Increased for true luxury isolation */
+  --container-max: 1000px; /* Even tighter for effortless eye tracking */
   
   /* Typography */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
   /* Advanced Shadows & Easings */
-  --soft-shadow: 0 20px 60px rgba(29, 31, 28, 0.05); /* Very diffused */
-  --apple-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --soft-shadow: 0 30px 90px rgba(45, 48, 44, 0.03); /* Vaporous shadow */
+  --apple-ease: cubic-bezier(0.25, 1, 0.5, 1); /* Slower, more intentional curve */
 }
 
 * {
@@ -32,7 +32,7 @@ html {
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  scroll-behavior: smooth; /* Even though we use framer-motion, fallback smooth scroll is good */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -48,11 +48,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  line-height: 1.8;
+  line-height: 1.9; /* Increased line-height for readability */
   color: var(--text-secondary);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 300;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 /* Base button style */
@@ -60,23 +60,24 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem 2.8rem;
-  background-color: var(--text-primary); /* Ultra premium dark button */
+  padding: 1.4rem 3.2rem;
+  background-color: var(--text-primary);
   color: #fff;
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  font-weight: 400;
+  font-weight: 300;
+  letter-spacing: 0.04em;
   text-decoration: none;
   border-radius: 100px;
   border: none;
   cursor: pointer;
-  transition: all 0.6s var(--apple-ease);
+  transition: all 0.8s var(--apple-ease);
 }
 
 .btn-primary:hover {
   background-color: var(--accent-color);
-  transform: scale(1.02);
-  box-shadow: 0 10px 40px rgba(106, 124, 100, 0.3);
+  transform: scale(1.03);
+  box-shadow: 0 15px 50px rgba(123, 143, 116, 0.2);
 }
 
 .section-container {
@@ -90,19 +91,19 @@ p {
 
 .heading-secondary {
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: 200;
   margin-bottom: 2rem;
   letter-spacing: -0.04em;
 }
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 8rem 5%;
+    --section-padding: 10rem 5%;
   }
   .heading-secondary {
     font-size: 2.4rem;
   }
   p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
 }

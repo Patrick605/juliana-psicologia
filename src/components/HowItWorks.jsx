@@ -1,37 +1,37 @@
 import { motion } from 'framer-motion';
 import styles from './HowItWorks.module.css';
 
-const easing = [0.16, 1, 0.3, 1];
+const easing = [0.25, 1, 0.5, 1];
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.3 }
+    transition: { staggerChildren: 0.4 } /* Slower stagger */
   }
 };
 
 const fadeLeft = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: easing } }
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1.8, ease: easing } }
 };
 
 export default function HowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Agendamento",
-      description: "Um primeiro contato simples. Escolhemos um horário com calma, ajustando-se à sua rotina para uma sessão inicial sem pressa."
+      title: "O Ponto de Partida",
+      description: "Um primeiro contato sutil e sem roteiro rígido. Definimos um momento para conversarmos com a calma que a sua rotina necessita."
     },
     {
       number: "02",
-      title: "O Encontro",
-      description: "Nosso espaço é de silêncio e escuta ativa. O primeiro encontro serve para construirmos confiança, no seu tempo."
+      title: "Tempo para Ouvir",
+      description: "O espaço aqui prioriza o seu silêncio tanto quanto as suas palavras. O vínculo terapêutico é tecido à mão, no seu ritmo."
     },
     {
       number: "03",
-      title: "O Ponto de Virada",
-      description: "Através de conversas guiadas e profundas, desenvolvemos clareza sobre suas questões para alcançar equilíbrio sustentável."
+      title: "Descoberta",
+      description: "Tiramos as camadas pesadas do dia a dia para que você possa entender verdadeiramente de onde vêm as suas dores."
     }
   ];
 
@@ -42,10 +42,10 @@ export default function HowItWorks() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-10%" }}
+        viewport={{ once: true, margin: "-15%" }}
       >
         <div className={styles.header}>
-          <motion.h2 className={styles.title} variants={fadeLeft}>O Processo</motion.h2>
+          <motion.h2 className={styles.title} variants={fadeLeft}>A Caminhada</motion.h2>
         </div>
         
         <div className={styles.stepsLayout}>
