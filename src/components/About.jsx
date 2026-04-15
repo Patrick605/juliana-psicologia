@@ -27,31 +27,45 @@ export default function About() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section id="about" className={`section-container section-padding ${styles.about}`}>
+    <section id="about" className={`section-padding ${styles.about}`} ref={containerRef}>
       <motion.div 
-        className={styles.grid}
+        className={`section-container ${styles.grid}`}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={{
-          visible: { transition: { staggerChildren: 0.2 } }
-        }}
+        viewport={{ once: true, margin: "-10%" }}
       >
-        <motion.div className={styles.textContent} variants={fadeUp}>
-          <h2 className="heading-secondary">Sobre Mim</h2>
-          <p className={styles.paragraph}>
-            Olá, sou a Juliana. Minha missão é caminhar ao seu lado durante o seu processo de autoconhecimento e cura. Acredito que a terapia não é sobre consertar o que está quebrado, mas sobre entender, acolher e transformar a sua própria história.
-          </p>
-          <p className={styles.paragraph}>
-            Com um olhar humano e empático, ofereço um espaço seguro para que possamos explorar suas emoções, medos e desejos. Cada pessoa é única, e aqui o seu ritmo sempre será respeitado.
-          </p>
-        </motion.div>
-        
-        <motion.div className={styles.imageContainer} variants={fadeUp}>
-          <div className={styles.placeholderImage}>
-            {/* We can use an elegant abstract shape or leave space for the actual photo */}
-          </div>
-        </motion.div>
+        <div className={styles.imageCol}>
+          <motion.div 
+            className={styles.imageContainer}
+            variants={fadeUp}
+          >
+            <motion.img 
+              src="/juliana-perfil.jpg" 
+              alt="Juliana Cerqueira - Psicóloga" 
+              className={styles.profileImage} 
+              style={{ y: imageY }} 
+            />
+          </motion.div>
+        </div>
+
+        <div className={styles.textCol}>
+          <motion.h2 className={styles.heading} variants={fadeUp}>
+            Uma jornada em direção a você.
+          </motion.h2>
+          
+          <motion.div variants={fadeUp}>
+            <p className={styles.paragraph}>
+              Acredito que a terapia não é sobre "consertar" quem você é. É um processo delicado de tirar as camadas e reencontrar a sua essência.
+            </p>
+            <p className={styles.paragraph}>
+              Ofereço um espaço meticulosamente livre de julgamentos. Um ambiente onde as pausas são respeitadas e as emoções acolhidas em sua totalidade.
+            </p>
+            <p className={styles.paragraph}>
+              Cada pessoa possui um ritmo único. Meu trabalho é caminhar ao seu lado.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );
